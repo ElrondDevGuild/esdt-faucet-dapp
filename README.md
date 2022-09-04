@@ -1,10 +1,9 @@
 ### Elrond devnet faucet (distribution) smart contract
 
-The frontent Dapp for the [Elrond ESDT Faucet Smart Contract](https://github.com/ElrondDevGuild/esdt-faucet-sc).
-
-Based on the [Elrond Nextjs Dapp Template](https://github.com/ElrondDevGuild/nextjs-dapp-template).
-
-Live app on the devnet: [https://devnet-elrond-esdt-faucet.netlify.app](https://devnet-elrond-esdt-faucet.netlify.app)
+- The frontent Dapp for the [Elrond ESDT Faucet Smart Contract](https://github.com/ElrondDevGuild/esdt-faucet-sc).
+- Based on the [Elrond Nextjs Dapp Template](https://github.com/ElrondDevGuild/nextjs-dapp-template).
+- Live app on the devnet: [https://devnet-elrond-esdt-faucet.netlify.app](https://devnet-elrond-esdt-faucet.netlify.app)
+- Walkthrough video: [https://youtu.be/yBvtM2ZqJGk](https://youtu.be/yBvtM2ZqJGk)
 
 ### Currently deployed example smart contract
 
