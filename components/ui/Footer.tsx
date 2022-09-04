@@ -4,7 +4,7 @@ import packageJson from '../../package.json';
 export const Footer = () => {
   return (
     <Box
-      height="120px"
+      height={{ base: "180px", md: '120px' }}
       bgColor="dappTemplate.dark.darker"
       color="dappTemplate.white"
       display="flex"
