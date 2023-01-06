@@ -5,8 +5,8 @@ export const dappHostname = process.env.NEXT_PUBLIC_DAPP_HOST;
 
 // HTML metata and og tags, default values for MetaHead.tsx component
 export const defaultMetaTags = {
-  title: 'Elrond ESDT Faucet - Elrond blockchain',
+  title: 'MultiversX ESDT Faucet - MultiversX blockchain',
   description:
-    'Elrond ESDT Faucet - you can claim and deposit ESDT tokens using a smart contract',
+    'MultiversX ESDT Faucet - you can claim and deposit ESDT tokens using a smart contract',
   image: `${dappHostname}/og-image.png`,
 };

@@ -19,7 +19,7 @@ export const Logo = () => {
           fontWeight="black"
           color="dappTemplate.white"
         >
-          Elrond ESDT Faucet
+          MultiversX ESDT Faucet
         </Text>
         <Text
           fontSize="small"

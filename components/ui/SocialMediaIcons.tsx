@@ -6,14 +6,14 @@ export const SocialMediaIcons = () => {
     <Box display="flex" alignItems="center" gap={3}>
       <Text>Dapp</Text>
       <SocialIcon
-        url="https://github.com/ElrondDevGuild/esdt-faucet-dapp"
+        url="https://github.com/xdevguild/esdt-faucet-dapp"
         bgColor="#fff"
         style={{ width: 30, height: 30 }}
         title="ESDT Faucet Dapp"
       />
       <Text>SC</Text>
       <SocialIcon
-        url="https://github.com/ElrondDevGuild/esdt-faucet-sc"
+        url="https://github.com/xdevguild/esdt-faucet-sc"
         bgColor="#fff"
         style={{ width: 30, height: 30 }}
         title="ESDT Faucet Smart Contract"

@@ -29,7 +29,7 @@ const Home: NextPage = () => {
           ESDT faucet is a dApp that connects with the{' '}
           <Link
             textDecoration="underline"
-            href="https://github.com/ElrondDevGuild/esdt-faucet-sc"
+            href="https://github.com/xdevguild/esdt-faucet-sc"
           >
             ESDT Faucet Smart Contract
           </Link>

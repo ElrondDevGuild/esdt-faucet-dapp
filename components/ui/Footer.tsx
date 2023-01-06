@@ -16,7 +16,7 @@ export const Footer = () => {
         fontWeight="normal"
         textAlign="center"
       >
-        <Box>Elrond ESDT Faucet (v{`${packageJson.version}`})</Box>
+        <Box>MultiversX ESDT Faucet (v{`${packageJson.version}`})</Box>
         <Box fontSize="xs" fontWeight="hairline">
           Check out all the projects below. All projects for free. Please
           support all of them. Give them a credit, star them on GitHub and tell
@@ -26,11 +26,11 @@ export const Footer = () => {
           <Text
             as="a"
             color="dappTemplate.color3.base"
-            href="https://github.com/ElrondDevGuild"
+            href="https://github.com/xdevguild"
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
-            {"Elrond's Dev Guild"}
+            {"xDevGuild"}
           </Text>
           {' - '}
           <Text
@@ -56,7 +56,7 @@ export const Footer = () => {
           <Text
             as="a"
             color="dappTemplate.color3.base"
-            href="https://github.com/ElrondDevGuild/nextjs-dapp-template"
+            href="https://github.com/xdevguild/nextjs-dapp-template"
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
@@ -66,7 +66,7 @@ export const Footer = () => {
           <Text
             as="a"
             color="dappTemplate.color3.base"
-            href="https://github.com/ElrondDevGuild/buildo-begins"
+            href="https://github.com/xdevguild/buildo-begins"
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
