@@ -50,7 +50,7 @@ export const TxWebWalletPendingModal = ({
             <Text textAlign="center" fontWeight="black" fontSize="xl">
               Transaction status
             </Text>
-            {transactionHash && process.env.NEXT_PUBLIC_ELROND_CHAIN ? (
+            {transactionHash && process.env.NEXT_PUBLIC_MULTIVERSX_CHAIN ? (
               <>
                 <Text mt={3}>Transaction details:</Text>
                 <Text
@@ -59,7 +59,7 @@ export const TxWebWalletPendingModal = ({
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   href={`${
-                    networkConfig[process.env.NEXT_PUBLIC_ELROND_CHAIN]
+                    networkConfig[process.env.NEXT_PUBLIC_MULTIVERSX_CHAIN]
                       .explorerAddress
                   }/transactions/${transactionHash}`}
                 >

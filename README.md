@@ -9,7 +9,7 @@
 
 Just an example, you can use this one or deploy yours.
 
-- [erd1qqqqqqqqqqqqqpgqwd59aum8c7c72ces7cezsmhqd8rqrtwagtksp6jahr](https://devnet-explorer.elrond.com/accounts/erd1qqqqqqqqqqqqqpgqwd59aum8c7c72ces7cezsmhqd8rqrtwagtksp6jahr)
+- [erd1qqqqqqqqqqqqqpgqwd59aum8c7c72ces7cezsmhqd8rqrtwagtksp6jahr](https://devnet-explorer.multiversx.com/accounts/erd1qqqqqqqqqqqqqpgqwd59aum8c7c72ces7cezsmhqd8rqrtwagtksp6jahr)
 
 ### TODO
 

@@ -12,7 +12,7 @@ import {
   ContractFunction,
   BigUIntValue,
   BytesValue,
-} from '@elrondnetwork/erdjs';
+} from '@multiversx/sdk-core';
 import { FC, useCallback } from 'react';
 import { useScQuery, SCQueryType } from '../../hooks/core/useScQuery';
 import { useScTransaction } from '../../hooks/core/useScTransaction';
@@ -102,7 +102,7 @@ export const ClaimModal: FC<ClaimModalProps> = ({
             <ActionButton mt={5} onClick={handleClaimTx} disabled={pending}>
               Claim
             </ActionButton>
-            {transaction && process.env.NEXT_PUBLIC_ELROND_CHAIN && (
+            {transaction && process.env.NEXT_PUBLIC_MULTIVERSX_CHAIN && (
               <>
                 <Text mt={3}>Transaction details:</Text>
                 <Text
@@ -111,7 +111,7 @@ export const ClaimModal: FC<ClaimModalProps> = ({
                   target="_blank"
                   rel="noopener noreferrer nofollow"
                   href={`${
-                    networkConfig[process.env.NEXT_PUBLIC_ELROND_CHAIN]
+                    networkConfig[process.env.NEXT_PUBLIC_MULTIVERSX_CHAIN]
                       .explorerAddress
                   }/transactions/${transaction?.getHash().toString()}`}
                 >

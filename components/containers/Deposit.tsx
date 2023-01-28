@@ -4,7 +4,7 @@ import {
   ContractFunction,
   BigUIntValue,
   BytesValue,
-} from '@elrondnetwork/erdjs';
+} from '@multiversx/sdk-core';
 import { useScTransaction } from '../../hooks/core/useScTransaction';
 import { networkConfig } from '../../config/network';
 import { ActionButton } from '../tools/ActionButton';
@@ -104,7 +104,7 @@ export const Deposit = () => {
           Deposit
         </ActionButton>
         {pending && <Spinner ml={5} />}
-        {transaction && process.env.NEXT_PUBLIC_ELROND_CHAIN ? (
+        {transaction && process.env.NEXT_PUBLIC_MULTIVERSX_CHAIN ? (
           <Stack direction="row" ml={5}>
             <Text>Transaction details: </Text>
             <Text
@@ -113,7 +113,7 @@ export const Deposit = () => {
               target="_blank"
               rel="noopener noreferrer nofollow"
               href={`${
-                networkConfig[process.env.NEXT_PUBLIC_ELROND_CHAIN]
+                networkConfig[process.env.NEXT_PUBLIC_MULTIVERSX_CHAIN]
                   .explorerAddress
               }/transactions/${transaction.getHash().toString()}`}
             >

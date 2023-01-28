@@ -28,7 +28,7 @@ export const Logo = () => {
           top={-2}
           color="dappTemplate.color3.base"
         >
-          {process.env.NEXT_PUBLIC_ELROND_CHAIN}
+          {process.env.NEXT_PUBLIC_MULTIVERSX_CHAIN}
         </Text>
       </Box>
     </NextLink>
