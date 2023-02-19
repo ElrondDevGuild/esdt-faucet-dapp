@@ -1,12 +1,12 @@
-import { Box, Spinner, Input, Stack, Text } from '@chakra-ui/react';
+import { Box, Spinner, Input, Stack, Text, Heading } from '@chakra-ui/react';
 import { useCallback, useState } from 'react';
 import {
   ContractFunction,
   BigUIntValue,
   BytesValue,
+  ContractCallPayloadBuilder,
 } from '@multiversx/sdk-core';
-import { useScTransaction } from '../../hooks/core/useScTransaction';
-import { networkConfig } from '../../config/network';
+import { useConfig, useTransaction } from '@useelven/core';
 import { ActionButton } from '../tools/ActionButton';
 import { shortenHash } from '../../utils/shortenHash';
 
@@ -20,10 +20,11 @@ const InputWrapper = ({ ...props }) => {
 };
 
 export const Deposit = () => {
+  const { explorerAddress } = useConfig();
   const [tokenId, setTokenId] = useState('');
   const [amount, setAmount] = useState('');
   const [maxAmountPerDay, setMaxAmountPerDay] = useState('');
-  const { pending, triggerTx, transaction } = useScTransaction();
+  const { pending, triggerTx, transaction } = useTransaction();
 
   const handleDepositTx = useCallback(() => {
     if (
@@ -33,18 +34,22 @@ export const Deposit = () => {
       !maxAmountPerDay
     )
       return;
-    triggerTx({
-      smartContractAddress:
-        process.env.NEXT_PUBLIC_FAUCET_SMART_CONTRACT_ADDRESS,
-      func: new ContractFunction('ESDTTransfer'),
-      gasLimit: 3000000,
-      args: [
+    // Prepare data payload for smart contract using MultiversX JS SDK core tools
+    const data = new ContractCallPayloadBuilder()
+      .setFunction(new ContractFunction('ESDTTransfer'))
+      .setArgs([
         BytesValue.fromUTF8(tokenId),
         new BigUIntValue(amount),
         BytesValue.fromUTF8('setLimit'),
         new BigUIntValue(maxAmountPerDay),
-      ],
+      ])
+      .build();
+
+    triggerTx({
+      address: process.env.NEXT_PUBLIC_FAUCET_SMART_CONTRACT_ADDRESS,
+      gasLimit: 3000000,
       value: 0,
+      data,
     });
     setTokenId('');
     setAmount('');
@@ -64,6 +69,9 @@ export const Deposit = () => {
   return (
     <Box>
       <Stack spacing={3}>
+        <Heading as="h5" size="md">
+          Remember to use the wallet of the manager of the token.
+        </Heading>
         <Text mb={4}>Token Id (ticker, for example: BUILDO-890d14)</Text>
         <InputWrapper
           placeholder="Token Id"
@@ -112,10 +120,9 @@ export const Deposit = () => {
               as="a"
               target="_blank"
               rel="noopener noreferrer nofollow"
-              href={`${
-                networkConfig[process.env.NEXT_PUBLIC_MULTIVERSX_CHAIN]
-                  .explorerAddress
-              }/transactions/${transaction.getHash().toString()}`}
+              href={`${explorerAddress}/transactions/${transaction
+                .getHash()
+                .toString()}`}
             >
               {shortenHash(transaction.getHash().toString())}
             </Text>

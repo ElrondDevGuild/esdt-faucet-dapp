@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import {
   Text,
-  Flex,
   Link,
   Tabs,
   TabList,
@@ -14,7 +13,6 @@ import { HeaderMenu } from '../components/ui/HeaderMenu';
 import { HeaderMenuButtons } from '../components/ui/HeaderMenuButtons';
 import { Authenticated } from '../components/tools/Authenticated';
 import { CardWrapper } from '../components/ui/CardWrapper';
-import { LoginModalButton } from '../components/tools/LoginModalButton';
 import { ScTokens } from '../components/containers/SCTokens';
 import { Deposit } from '../components/containers/Deposit';
 
@@ -49,14 +47,9 @@ const Home: NextPage = () => {
         <Authenticated
           spinnerCentered
           fallback={
-            <>
-              <Text fontWeight="bold" fontSize="2xl" textAlign="center">
-                Connect your wallet!
-              </Text>
-              <Flex mt={4} justifyContent="center">
-                <LoginModalButton />
-              </Flex>
-            </>
+            <Text fontWeight="bold" fontSize="2xl" textAlign="center">
+              Connect your wallet!
+            </Text>
           }
         >
           <Tabs colorScheme="whatsapp">

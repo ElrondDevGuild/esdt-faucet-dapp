@@ -9,10 +9,9 @@ import {
   Spinner,
   useDisclosure,
 } from '@chakra-ui/react';
-import { networkConfig } from '../../config/network';
-import { useEffectOnlyOnUpdate } from '../../hooks/tools/useEffectOnlyOnUpdate';
+import { useConfig, useTransaction } from '@useelven/core';
+import { useEffectOnlyOnUpdate } from '../../hooks/useEffectOnlyOnUpdate';
 import { shortenHash } from '../../utils/shortenHash';
-import { useScTransaction } from '../../hooks/core/useScTransaction';
 
 const CustomModalOverlay = () => {
   return <ModalOverlay bg="blackAlpha.700" backdropFilter="blur(5px)" />;
@@ -23,8 +22,9 @@ export const TxWebWalletPendingModal = ({
 }: {
   onClose: () => void;
 }) => {
+  const { explorerAddress } = useConfig();
   const { isOpen, onOpen, onClose: close } = useDisclosure({ onClose });
-  const { pending, transaction } = useScTransaction(); // Web Wallet state
+  const { pending, transaction } = useTransaction(); // Web Wallet state
 
   useEffectOnlyOnUpdate(() => {
     if (pending) {
@@ -58,10 +58,7 @@ export const TxWebWalletPendingModal = ({
                   as="a"
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  href={`${
-                    networkConfig[process.env.NEXT_PUBLIC_MULTIVERSX_CHAIN]
-                      .explorerAddress
-                  }/transactions/${transactionHash}`}
+                  href={`${explorerAddress}/transactions/${transactionHash}`}
                 >
                   {shortenHash(transactionHash)}
                 </Text>

@@ -12,13 +12,17 @@ import {
   ContractFunction,
   BigUIntValue,
   BytesValue,
+  ContractCallPayloadBuilder,
 } from '@multiversx/sdk-core';
 import { FC, useCallback } from 'react';
-import { useScQuery, SCQueryType } from '../../hooks/core/useScQuery';
-import { useScTransaction } from '../../hooks/core/useScTransaction';
+import {
+  useScQuery,
+  SCQueryType,
+  useConfig,
+  useTransaction,
+} from '@useelven/core';
 import { ActionButton } from '../tools/ActionButton';
 import { denominate } from '../../utils/denominate';
-import { networkConfig } from '../../config/network';
 import { shortenHash } from '../../utils/shortenHash';
 
 interface ClaimModalProps {
@@ -38,6 +42,7 @@ export const ClaimModal: FC<ClaimModalProps> = ({
   open,
   onClose,
 }) => {
+  const { explorerAddress } = useConfig();
   const { data: queryResult } = useScQuery<number>({
     type: SCQueryType.NUMBER,
     payload: {
@@ -48,7 +53,7 @@ export const ClaimModal: FC<ClaimModalProps> = ({
     autoInit: Boolean(open && tokenId),
   });
 
-  const { pending, triggerTx, transaction } = useScTransaction();
+  const { pending, triggerTx, transaction } = useTransaction();
 
   const handleClaimTx = useCallback(() => {
     if (
@@ -57,16 +62,20 @@ export const ClaimModal: FC<ClaimModalProps> = ({
       !queryResult
     )
       return;
-    triggerTx({
-      smartContractAddress:
-        process.env.NEXT_PUBLIC_FAUCET_SMART_CONTRACT_ADDRESS,
-      func: new ContractFunction('claim'),
-      gasLimit: 3000000,
-      args: [
+    // Prepare data payload for smart contract using MultiversX JS SDK core tools
+    const data = new ContractCallPayloadBuilder()
+      .setFunction(new ContractFunction('claim'))
+      .setArgs([
         BytesValue.fromUTF8(tokenId.trim()),
         new BigUIntValue(queryResult),
-      ],
+      ])
+      .build();
+
+    triggerTx({
+      address: process.env.NEXT_PUBLIC_FAUCET_SMART_CONTRACT_ADDRESS,
+      gasLimit: 3000000,
       value: 0,
+      data,
     });
   }, [queryResult, tokenId, triggerTx]);
 
@@ -89,7 +98,7 @@ export const ClaimModal: FC<ClaimModalProps> = ({
             <Text textAlign="center">
               Claim{' '}
               <strong>
-                {tokenDecimals
+                {tokenDecimals && queryResult
                   ? denominate(queryResult.toString(), tokenDecimals)
                   : '-'}
               </strong>{' '}
@@ -110,10 +119,9 @@ export const ClaimModal: FC<ClaimModalProps> = ({
                   as="a"
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  href={`${
-                    networkConfig[process.env.NEXT_PUBLIC_MULTIVERSX_CHAIN]
-                      .explorerAddress
-                  }/transactions/${transaction?.getHash().toString()}`}
+                  href={`${explorerAddress}/transactions/${transaction
+                    ?.getHash()
+                    .toString()}`}
                 >
                   {shortenHash(transaction?.getHash().toString())}
                 </Text>

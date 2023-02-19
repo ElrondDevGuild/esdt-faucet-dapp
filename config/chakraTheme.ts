@@ -15,7 +15,7 @@ export const theme = extendTheme({
       '*': {
         '&::-webkit-scrollbar': {
           width: 1.5,
-          height: 1.5
+          height: 1.5,
         },
         '&::-webkit-scrollbar-track': {
           backgroundColor: 'dappTemplate.dark.base',

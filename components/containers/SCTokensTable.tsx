@@ -10,8 +10,8 @@ import {
   Spinner,
 } from '@chakra-ui/react';
 import { FC } from 'react';
-import { useApiCall } from '../../hooks/tools/useApiCall';
-import { useEffectOnlyOnUpdate } from '../../hooks/tools/useEffectOnlyOnUpdate';
+import { useApiCall } from '@useelven/core';
+import { useEffectOnlyOnUpdate } from '../../hooks/useEffectOnlyOnUpdate';
 import { SCToken } from '../../types/scToken';
 import { denominate } from '../../utils/denominate';
 import { ActionButton } from '../tools/ActionButton';

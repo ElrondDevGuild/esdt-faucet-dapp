@@ -10,11 +10,10 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { FC } from 'react';
+import { useLogin, useLogout } from '@useelven/core';
 import { ActionButton } from '../tools/ActionButton';
 import { LoginComponent } from '../tools/LoginComponent';
-import { useEffectOnlyOnUpdate } from '../../hooks/tools/useEffectOnlyOnUpdate';
-import { useLogin } from '../../hooks/auth/useLogin';
-import { useLogout } from '../../hooks/auth/useLogout';
+import { useEffectOnlyOnUpdate } from '../../hooks/useEffectOnlyOnUpdate';
 
 interface LoginModalButtonProps {
   onClose?: () => void;

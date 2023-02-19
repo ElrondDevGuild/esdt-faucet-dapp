@@ -4,7 +4,7 @@ import packageJson from '../../package.json';
 export const Footer = () => {
   return (
     <Box
-      height={{ base: "180px", md: '120px' }}
+      height={{ base: '180px', md: '120px' }}
       bgColor="dappTemplate.dark.darker"
       color="dappTemplate.white"
       display="flex"
@@ -30,7 +30,7 @@ export const Footer = () => {
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
-            {"xDevGuild"}
+            {'xDevGuild'}
           </Text>
           {' - '}
           <Text
