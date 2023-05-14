@@ -29,6 +29,7 @@ Please report all bugs and ideas for improvements.
 
 ### You may also like
 
-- [Elven Tools](https://github.com/ElvenTools)
-- [Elven.js](https://github.com/juliancwirko/elven.js)
-- [Buildo Begins](https://github.com/xdevguild/buildo-begins)
+- [Elven Tools - NFT/SFT tools](https://github.com/ElvenTools)
+- [Elven.js - lite browse only SDK](https://github.com/juliancwirko/elven.js)
+- [useElven - custom React hooks](https://github.com/useElven)
+- [Buildo Begins - CLI tools for interaction](https://github.com/xdevguild/buildo-begins)

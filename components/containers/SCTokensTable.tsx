@@ -42,7 +42,7 @@ export const ScTokensTable: FC<ScTokensTable> = ({
       <Spinner
         thickness="3px"
         speed="0.4s"
-        color="elvenTools.color2.base"
+        color="dappTemplate.color2.base"
         size="md"
         mt={3}
       />
