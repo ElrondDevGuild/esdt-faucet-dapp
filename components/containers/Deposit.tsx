@@ -1,12 +1,11 @@
 import { Box, Spinner, Input, Stack, Text, Heading } from '@chakra-ui/react';
 import { useCallback, useState } from 'react';
+import { BigUIntValue } from '@multiversx/sdk-core';
 import {
-  ContractFunction,
-  BigUIntValue,
-  BytesValue,
-  ContractCallPayloadBuilder,
-} from '@multiversx/sdk-core';
-import { useConfig, useTransaction } from '@useelven/core';
+  useConfig,
+  useTokenTransfer,
+  ScTokenTransferType,
+} from '@useelven/core';
 import { ActionButton } from '../tools/ActionButton';
 import { shortenHash } from '../../utils/shortenHash';
 
@@ -24,7 +23,7 @@ export const Deposit = () => {
   const [tokenId, setTokenId] = useState('');
   const [amount, setAmount] = useState('');
   const [maxAmountPerDay, setMaxAmountPerDay] = useState('');
-  const { pending, triggerTx, transaction } = useTransaction();
+  const { pending, transfer, transaction } = useTokenTransfer({});
 
   const handleDepositTx = useCallback(() => {
     if (
@@ -34,27 +33,20 @@ export const Deposit = () => {
       !maxAmountPerDay
     )
       return;
-    // Prepare data payload for smart contract using MultiversX JS SDK core tools
-    const data = new ContractCallPayloadBuilder()
-      .setFunction(new ContractFunction('ESDTTransfer'))
-      .setArgs([
-        BytesValue.fromUTF8(tokenId),
-        new BigUIntValue(amount),
-        BytesValue.fromUTF8('setLimit'),
-        new BigUIntValue(maxAmountPerDay),
-      ])
-      .build();
-
-    triggerTx({
+    transfer({
+      type: ScTokenTransferType.ESDTTransfer,
+      tokenId,
       address: process.env.NEXT_PUBLIC_FAUCET_SMART_CONTRACT_ADDRESS,
+      amount,
       gasLimit: 3000000,
       value: 0,
-      data,
+      endpointName: 'setLimit',
+      endpointArgs: [new BigUIntValue(maxAmountPerDay)],
     });
     setTokenId('');
     setAmount('');
     setMaxAmountPerDay('');
-  }, [amount, maxAmountPerDay, tokenId, triggerTx]);
+  }, [amount, maxAmountPerDay, tokenId, transfer]);
 
   const handleTokenChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     setTokenId(event.target.value);

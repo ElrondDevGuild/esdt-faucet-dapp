@@ -1,6 +1,6 @@
 {
   "name": "esdt-faucet-dapp",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "Julian Ćwirko <julian.io>",
   "license": "MIT",
   "homepage": "https://github.com/xdevguild/esdt-faucet-dapp",
@@ -17,17 +17,17 @@
     "prettier": "prettier --write '**/*.{js,ts,tsx,json}'"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.19",
-    "@chakra-ui/react": "2.6.1",
-    "@emotion/react": "11.11.0",
+    "@chakra-ui/icons": "2.0.19",
+    "@chakra-ui/react": "2.7.0",
+    "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
-    "@fontsource/poppins": "4.5.10",
-    "@multiversx/sdk-core": "12.2.1",
-    "@useelven/core": "0.4.0",
+    "@fontsource/poppins": "5.0.3",
+    "@multiversx/sdk-core": "12.4.0",
+    "@useelven/core": "0.7.0",
     "bignumber.js": "9.1.1",
     "buffer": "6.0.3",
     "crypto-browserify": "3.12.0",
-    "next": "13.4.2",
+    "next": "13.4.6",
     "path-browserify": "1.0.1",
     "process": "0.11.10",
     "qrcode": "1.5.3",
@@ -37,15 +37,15 @@
     "stream-browserify": "3.0.0"
   },
   "devDependencies": {
-    "@types/node": "20.1.4",
+    "@types/node": "20.3.1",
     "@types/qrcode": "1.5.0",
-    "@types/react": "18.2.6",
-    "@typescript-eslint/eslint-plugin": "5.59.5",
-    "@typescript-eslint/parser": "5.59.5",
-    "eslint": "8.40.0",
-    "eslint-config-next": "13.4.2",
+    "@types/react": "18.2.12",
+    "@typescript-eslint/eslint-plugin": "5.59.11",
+    "@typescript-eslint/parser": "5.59.11",
+    "eslint": "8.43.0",
+    "eslint-config-next": "13.4.6",
     "eslint-config-prettier": "8.8.0",
     "prettier": "2.8.8",
-    "typescript": "5.0.4"
+    "typescript": "5.1.3"
   }
 }
