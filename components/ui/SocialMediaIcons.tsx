@@ -7,14 +7,14 @@ export const SocialMediaIcons = () => {
       <Text>Dapp</Text>
       <SocialIcon
         url="https://github.com/xdevguild/esdt-faucet-dapp"
-        bgColor="#fff"
+        bgColor="#1d222a"
         style={{ width: 30, height: 30 }}
         title="ESDT Faucet Dapp"
       />
       <Text>SC</Text>
       <SocialIcon
         url="https://github.com/xdevguild/esdt-faucet-sc"
-        bgColor="#fff"
+        bgColor="#1d222a"
         style={{ width: 30, height: 30 }}
         title="ESDT Faucet Smart Contract"
       />

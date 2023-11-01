@@ -23,7 +23,7 @@ export const Deposit = () => {
   const [tokenId, setTokenId] = useState('');
   const [amount, setAmount] = useState('');
   const [maxAmountPerDay, setMaxAmountPerDay] = useState('');
-  const { pending, transfer, transaction } = useTokenTransfer({});
+  const { pending, transfer, transaction } = useTokenTransfer();
 
   const handleDepositTx = useCallback(() => {
     if (
@@ -33,6 +33,8 @@ export const Deposit = () => {
       !maxAmountPerDay
     )
       return;
+
+    const limitArgument = new BigUIntValue(maxAmountPerDay);
     transfer({
       type: ScTokenTransferType.ESDTTransfer,
       tokenId,
@@ -41,7 +43,7 @@ export const Deposit = () => {
       gasLimit: 3000000,
       value: 0,
       endpointName: 'setLimit',
-      endpointArgs: [new BigUIntValue(maxAmountPerDay)],
+      endpointArgs: [limitArgument],
     });
     setTokenId('');
     setAmount('');

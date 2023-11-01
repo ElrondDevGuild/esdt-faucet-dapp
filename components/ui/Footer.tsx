@@ -46,6 +46,16 @@ export const Footer = () => {
           <Text
             as="a"
             color="dappTemplate.color3.base"
+            href="https://www.useelven.com"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            {'useElven'}
+          </Text>
+          {' - '}
+          <Text
+            as="a"
+            color="dappTemplate.color3.base"
             href="https://github.com/juliancwirko/elven.js"
             target="_blank"
             rel="noopener noreferrer nofollow"
@@ -71,6 +81,16 @@ export const Footer = () => {
             rel="noopener noreferrer nofollow"
           >
             {'Buildo Begins'}
+          </Text>
+          {' - '}
+          <Text
+            as="a"
+            color="dappTemplate.color3.base"
+            href="https://www.buildo.dev"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            {'Buildo.dev'}
           </Text>
         </Box>
         <Box fontSize="xs" fontWeight="bold">

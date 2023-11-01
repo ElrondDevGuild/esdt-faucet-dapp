@@ -47,9 +47,9 @@ export const LoginComponent = memo(() => {
           <>
             <ActionButton
               isFullWidth
-              onClick={handleLogin(LoginMethodsEnum.wallet)}
+              onClick={handleLogin(LoginMethodsEnum.walletconnect)}
             >
-              MultiversX Web Wallet
+              xPortal Mobile App
             </ActionButton>
             <ActionButton
               isFullWidth
@@ -59,9 +59,15 @@ export const LoginComponent = memo(() => {
             </ActionButton>
             <ActionButton
               isFullWidth
-              onClick={handleLogin(LoginMethodsEnum.walletconnect)}
+              onClick={handleLogin(LoginMethodsEnum.wallet)}
             >
-              xPortal Mobile App
+              MultiversX Web Wallet
+            </ActionButton>
+            <ActionButton
+              isFullWidth
+              onClick={handleLogin(LoginMethodsEnum.xalias)}
+            >
+              xAlias
             </ActionButton>
             <ActionButton isFullWidth onClick={handleLedgerAccountsList}>
               Ledger
