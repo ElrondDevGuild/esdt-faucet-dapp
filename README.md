@@ -1,7 +1,7 @@
 ### MultiversX devnet faucet (distribution) smart contract
 
 - The frontent Dapp for the [MultiversX ESDT Faucet Smart Contract](https://github.com/xdevguild/esdt-faucet-sc).
-- Based on the [MultiversX Nextjs Dapp Template](https://github.com/xdevguild/nextjs-dapp-template).
+- Based on the older version of [MultiversX Nextjs Dapp Template](https://github.com/xdevguild/nextjs-dapp-template).
 - Live app on the devnet: [https://devnet-multiversx-esdt-faucet.netlify.app](https://devnet-multiversx-esdt-faucet.netlify.app/)
 - Walkthrough video: [https://youtu.be/yBvtM2ZqJGk](https://youtu.be/yBvtM2ZqJGk)
 

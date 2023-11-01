@@ -14,10 +14,14 @@ const nextConfig = {
   },
   reactStrictMode: true,
   async rewrites() {
+    if (!process.env.MULTIVERSX_PRIVATE_API) {
+      return [];
+    }
     return [
       {
         source: `${process.env.NEXT_PUBLIC_MULTIVERSX_API}/:path*`,
         destination: `${process.env.MULTIVERSX_CUSTOM_API}/:path*`,
+        destination: `${process.env.MULTIVERSX_PRIVATE_API}/:path*`,
       },
     ];
   },

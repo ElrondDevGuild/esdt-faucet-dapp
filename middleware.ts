@@ -15,7 +15,7 @@ interface CustomNextRequest extends NextRequest {
 export function middleware(req: CustomNextRequest) {
   const res = NextResponse.next();
 
-  if (!process.env.NEXT_PUBLIC_MULTIVERSX_API) return res;
+  if (!process.env.NEXT_PUBLIC_MULTIVERSX_API?.includes('/api')) return res;
 
   if (req.nextUrl.pathname.startsWith(process.env.NEXT_PUBLIC_MULTIVERSX_API)) {
     const definedHost = process.env.API_ALLOWED_DAPP_HOST;
