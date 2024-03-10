@@ -15,6 +15,7 @@ import { useEffectOnlyOnUpdate } from '../../hooks/useEffectOnlyOnUpdate';
 import { SCToken } from '../../types/scToken';
 import { denominate } from '../../utils/denominate';
 import { ActionButton } from '../tools/ActionButton';
+import { Authenticated } from '../tools/Authenticated';
 
 interface ScTokensTable {
   handleChooseTokenToClaim: (token: SCToken) => () => void;
@@ -66,9 +67,14 @@ export const ScTokensTable: FC<ScTokensTable> = ({
               <Td>{token.identifier}</Td>
               <Td>{denominate(token.balance, token.decimals)}</Td>
               <Td textAlign="right">
-                <ActionButton onClick={handleChooseTokenToClaim(token)}>
-                  Claim
-                </ActionButton>
+                <Authenticated
+                  noSpinner
+                  fallback={<div>Connect your wallet</div>}
+                >
+                  <ActionButton onClick={handleChooseTokenToClaim(token)}>
+                    Claim
+                  </ActionButton>
+                </Authenticated>
               </Td>
             </Tr>
           ))}

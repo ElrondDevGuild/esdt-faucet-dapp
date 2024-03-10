@@ -11,7 +11,6 @@ import {
 import { MainLayout } from '../components/ui/MainLayout';
 import { HeaderMenu } from '../components/ui/HeaderMenu';
 import { HeaderMenuButtons } from '../components/ui/HeaderMenuButtons';
-import { Authenticated } from '../components/tools/Authenticated';
 import { CardWrapper } from '../components/ui/CardWrapper';
 import { ScTokens } from '../components/containers/SCTokens';
 import { Deposit } from '../components/containers/Deposit';
@@ -44,29 +43,20 @@ const Home: NextPage = () => {
         </Text>
       </CardWrapper>
       <CardWrapper>
-        <Authenticated
-          spinnerCentered
-          fallback={
-            <Text fontWeight="bold" fontSize="2xl" textAlign="center">
-              Connect your wallet!
-            </Text>
-          }
-        >
-          <Tabs colorScheme="whatsapp">
-            <TabList>
-              <Tab>Claim</Tab>
-              <Tab>Deposit</Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel>
-                <ScTokens />
-              </TabPanel>
-              <TabPanel>
-                <Deposit />
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
-        </Authenticated>
+        <Tabs colorScheme="whatsapp" isLazy lazyBehavior="unmount">
+          <TabList>
+            <Tab>Claim</Tab>
+            <Tab>Deposit</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <ScTokens />
+            </TabPanel>
+            <TabPanel>
+              <Deposit />
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
       </CardWrapper>
     </MainLayout>
   );

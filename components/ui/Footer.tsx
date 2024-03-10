@@ -40,27 +40,7 @@ export const Footer = () => {
             target="_blank"
             rel="noopener noreferrer nofollow"
           >
-            {'Elven Tools'}
-          </Text>
-          {' - '}
-          <Text
-            as="a"
-            color="dappTemplate.color3.base"
-            href="https://www.useelven.com"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          >
-            {'useElven'}
-          </Text>
-          {' - '}
-          <Text
-            as="a"
-            color="dappTemplate.color3.base"
-            href="https://github.com/juliancwirko/elven.js"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          >
-            {'Elven.js'}
+            {'Elven Family Tools'}
           </Text>
           {' - '}
           <Text
@@ -71,16 +51,6 @@ export const Footer = () => {
             rel="noopener noreferrer nofollow"
           >
             {'Nextjs Dapp Template'}
-          </Text>
-          {' - '}
-          <Text
-            as="a"
-            color="dappTemplate.color3.base"
-            href="https://github.com/xdevguild/buildo-begins"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          >
-            {'Buildo Begins'}
           </Text>
           {' - '}
           <Text
